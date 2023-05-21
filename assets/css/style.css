@@ -1,4 +1,11 @@
-body {
-    background-color: white;
+/* Global styling */
 
+@import url('https://fonts.googleapis.com/css2?family=Electrolize&display=swap');
+
+
+body {
+    background-color: #1F8E9A;
+    font-family: 'Electrolize', sans-serif;
+    color: #F0EEE9;
+    text-align: center;
 }
