@@ -33,8 +33,6 @@ const timer = {
             document.getElementById('timer-placeholder').style.color = "yellow";
         } else if (this.remainingSeconds <= 10) {
             document.getElementById('timer-placeholder').style.color = "red";
-        } else if (this.remainingSeconds === 0) {
-            document.getElementById('timer-placeholder').style.color = "white";
         } else {
             document.getElementById('timer-placeholder').style.color = "#F0EEE9";
         }
