@@ -9,3 +9,51 @@ body {
     color: #F0EEE9;
     text-align: center;
 }
+
+/* Header styling */
+
+.header {
+    font-size: 2rem;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Timer area styling */
+
+.timer-area {
+    width: 100%;
+    height: auto;
+    max-height: 450px;
+    max-width: 830px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1%;
+}
+ 
+/* Input area styling */
+
+#input-area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 20px 0;
+}
+
+#input-area label {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+#input-area input {
+    width: 100px;
+    height: 50px;
+    font-size: 2rem;
+    text-align: center;
+    border: none;
+    border-radius: 5px;
+    background-color: #F0EEE9;
+    color: #202C2C;
+}
