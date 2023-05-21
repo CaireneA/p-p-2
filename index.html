@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="A countdown timer website">
+    <meta name="description" content="A simple yet powerful countdown timer website">
     <meta name="keywords" content="timer, countdown">
     <meta name="author" content="Ahmed">
     <link rel="stylesheet" href="assets/css/style.css">
@@ -13,7 +13,34 @@
 </head>
 
 <body>
-
+    <main class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>Your Favourite Countdown Timer</h1>
+        </header>
+        
+        <!-- Timer Area -->
+        <section class="timer-area" aria-labelledby="timer-section-heading">
+            <h2 id="timer-section-heading" class="hidden">Timer</h2>
+            <div id="input-area">
+                <label for="timer">Enter time in minutes:</label>
+                <input type="number" id="timer" min="0" step="1">
+            </div>
+            <div id="display-area">
+                <p id="timer-placeholder">00:00</p>
+            </div>
+        </section>
+        
+        <!-- Controls Area -->
+        <section class="controls-area" aria-labelledby="controls-section-heading">
+            <h2 id="controls-section-heading" class="hidden">Controls</h2>
+            <button class="btn" aria-label="Start Timer" data-type="start">Start</button>
+            <button class="btn" aria-label="Pause Timer" data-type="pause">Pause</button>
+            <button class="btn" aria-label="Resume Timer" data-type="resume">Resume</button>
+            <button class="btn" aria-label="Reset Timer" data-type="reset">Reset</button>
+        </section>
+    </main>
+    <script src="assets/js/script.js"></script>
 </body>
 
 </html>
