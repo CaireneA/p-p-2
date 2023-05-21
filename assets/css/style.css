@@ -57,3 +57,29 @@ body {
     background-color: #F0EEE9;
     color: #202C2C;
 }
+
+/* Controls Area styling */
+.controls-area {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 50%;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+.controls-area .btn {
+    background-color: #F0EEE9;
+    color: #202C2C;
+    font-size: 1.2rem;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.controls-area .btn:hover,
+.controls-area .btn:focus {
+    background-color: #d9d4c9;
+}
