@@ -29,12 +29,16 @@ const timer = {
         document.getElementById('timer-placeholder').innerText = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
 
         // Color changes based on the remaining time.
-        if (this.remainingSeconds <= this.totalSeconds * 0.1 && this.remainingSeconds > 10) {
-            document.getElementById('timer-placeholder').style.color = "yellow";
-        } else if (this.remainingSeconds <= 10) {
-            document.getElementById('timer-placeholder').style.color = "red";
+        if (this.remainingSeconds <= 10) {
+            document.getElementById('timer-placeholder').style.color = "#FEC328";
         } else {
             document.getElementById('timer-placeholder').style.color = "#F0EEE9";
+        }
+
+        // If the remaining time is zero, just show "00:00:00" and return
+        if (this.remainingSeconds === 0) {
+            document.getElementById('timer-placeholder').innerText = "00:00:00";
+            return;
         }
     },
 
