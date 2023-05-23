@@ -22,11 +22,11 @@
         <section class="timer-area" aria-labelledby="timer-section-heading">
             <h2 id="timer-section-heading" class="hidden">Timer</h2>
             <div id="input-area">
-                <input type="number" id="hours" min="0" max="23" step="1" placeholder="00">
+                <input type="text" id="hours" placeholder="00">
                 <span>:</span>
-                <input type="number" id="minutes" min="0" max="59" step="1" placeholder="00">
+                <input type="text" id="minutes" placeholder="00">
                 <span>:</span>
-                <input type="number" id="seconds" min="0" max="59" step="1" placeholder="00">
+                <input type="text" id="seconds" placeholder="00">
             </div>
             <div id="display-area">
                 <p id="timer-placeholder">00:00:00</p>
@@ -37,7 +37,7 @@
             <h2 id="controls-section-heading" class="hidden">Controls</h2>
             <button class="btn" aria-label="Start Timer" data-type="start">Start</button>
             <button class="btn" aria-label="Pause Timer" data-type="pause">Pause</button>
-            <button class="btn" aria-label="Play Timer" data-type="play">Play</button>
+            <button class="btn" aria-label="Resume Timer" data-type="play">Resume</button>
             <button class="btn" aria-label="Reset Timer" data-type="reset">Reset</button>
         </section>
     </main>
