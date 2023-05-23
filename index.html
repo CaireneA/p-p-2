@@ -22,20 +22,23 @@
         <section class="timer-area" aria-labelledby="timer-section-heading">
             <h2 id="timer-section-heading" class="hidden">Timer</h2>
             <div id="input-area">
-                <label for="hours">Hours</label>
-                <input type="text" id="hours" placeholder="00">
-                <span>:</span>
-                <label for="minutes">Minutes</label>
-                <input type="text" id="minutes" placeholder="00">
-                <span>:</span>
-                <label for="seconds">Seconds</label>
-                <input type="text" id="seconds" placeholder="00">
+                <div class="input-wrapper">
+                    <label for="hours">Hours</label>
+                    <input type="text" id="hours" placeholder="00">
+                </div>
+                <div class="input-wrapper">
+                    <label for="minutes">Minutes</label>
+                    <input type="text" id="minutes" placeholder="00">
+                </div>
+                <div class="input-wrapper">
+                    <label for="seconds">Seconds</label>
+                    <input type="text" id="seconds" placeholder="00">
+                </div>
             </div>
             <div id="display-area">
                 <p id="timer-placeholder">00:00:00</p>
             </div>
-        </section>
-        
+        </section>        
         <!-- Controls Area -->
         <section class="controls-area" aria-labelledby="controls-section-heading">
             <h2 id="controls-section-heading" class="hidden">Controls</h2>

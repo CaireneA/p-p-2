@@ -38,20 +38,29 @@ body {
 
 /* Input area styling */
 
+/* Input area styling */
+
 #input-area {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-end;
     flex-direction: row;
     margin: 20px 0;
 }
 
-/* #input-area label {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-} */
+.input-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 1rem;
+}
 
-#input-area input {
+.input-wrapper label {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.input-wrapper input {
     width: 100px;
     height: 50px;
     font-size: 2rem;
