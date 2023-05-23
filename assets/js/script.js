@@ -4,7 +4,22 @@ const timer = {
     remainingSeconds: 0,
     timerInterval: null,
 
-    
+    /**
+     * Handles the key press event for Enter key.
+     * Starts the timer when Enter key is pressed.
+     */
+    handleKeyPress(event) {
+        if (event.key === 'Enter') {
+            timer.getTimeInput();
+            timer.runTimer();
+
+            // Reset the input values to 0 after timer starts
+            document.getElementById('hours').value = 0;
+            document.getElementById('minutes').value = 0;
+            document.getElementById('seconds').value = 0;
+        }
+    },
+
 
     /**
      * Adds leading zero if necessary and checks if the input is valid
@@ -24,8 +39,6 @@ const timer = {
             inputElement.value = inputElement.placeholder;
         }
     },
-    
-    
 
 
     /**
@@ -36,19 +49,19 @@ const timer = {
         const hoursInput = document.getElementById('hours');
         const minutesInput = document.getElementById('minutes');
         const secondsInput = document.getElementById('seconds');
-    
+
         this.checkAndPadInput(hoursInput);
         this.checkAndPadInput(minutesInput);
         this.checkAndPadInput(secondsInput);
-    
+
         let hours = hoursInput.value;
         let minutes = minutesInput.value;
         let seconds = secondsInput.value;
-    
+
         this.totalSeconds = hours * 3600 + minutes * 60 + Number(seconds);
         this.remainingSeconds = this.totalSeconds;
     },
-    
+
 
     /**
      * Displays the current remaining time in HH:MM:SS format.
@@ -99,6 +112,7 @@ const timer = {
         }, 1000);
     },
 
+
     /**
      * Pauses the timer by clearing the interval.
      */
@@ -106,6 +120,7 @@ const timer = {
         clearInterval(this.timerInterval);
     },
 
+    
     /**
      * Resets the timer to the originally set time.
      */
@@ -125,8 +140,14 @@ const timer = {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-    // Start button starts the timer.
-    document.querySelector("[data-type='start']").addEventListener("click", function () {
+    // Get references to the buttons
+    const startButton = document.querySelector("[data-type='start']");
+    const pauseButton = document.querySelector("[data-type='pause']");
+    const playButton = document.querySelector("[data-type='play']");
+    const resetButton = document.querySelector("[data-type='reset']");
+
+    // Handle Start button click
+    function handleStartButtonClick() {
         timer.getTimeInput();
         timer.runTimer();
 
@@ -134,20 +155,24 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('hours').value = 0;
         document.getElementById('minutes').value = 0;
         document.getElementById('seconds').value = 0;
-    });
+    }
 
-    // Pause button pauses the timer.
-    document.querySelector("[data-type='pause']").addEventListener("click", function () {
-        timer.pauseTimer();
-    });
+    // Handle key press event for Enter key
+    function handleKeyPress(event) {
+        if (event.key === 'Enter') {
+            handleStartButtonClick();
+        }
+    }
 
-    // Play button resumes the timer.
-    document.querySelector("[data-type='play']").addEventListener("click", function () {
-        timer.runTimer();
+    // Add event listeners to the buttons
+    startButton.addEventListener('click', handleStartButtonClick);
+    pauseButton.addEventListener('click', timer.pauseTimer.bind(timer));
+    playButton.addEventListener('click', handleStartButtonClick);
+    resetButton.addEventListener('click', timer.resetTimer.bind(timer));
 
-        // Reset button resets the timer.
-        document.querySelector("[data-type='reset']").addEventListener("click", function () {
-            timer.resetTimer();
-        });
+    // Add keydown event listeners to input fields
+    const inputFields = document.querySelectorAll('input');
+    inputFields.forEach((inputField) => {
+        inputField.addEventListener('keydown', handleKeyPress);
     });
-})
+});
