@@ -47,6 +47,14 @@ const timer = {
      * Starts the timer countdown.
      */
     runTimer() {
+
+ // If totalSeconds is zero, show an alert and return
+ if (this.totalSeconds <= 0) {
+    alert("Please input a time before starting the timer.");
+    return;
+}
+
+
         // Clears any existing interval to avoid stacking intervals.
         clearInterval(this.timerInterval);
 
