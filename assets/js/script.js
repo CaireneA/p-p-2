@@ -4,6 +4,7 @@ const timer = {
     remainingSeconds: 0,
     timerInterval: null,
     paused: false,
+    isActive: false,
 
 
     /**
@@ -112,6 +113,8 @@ const timer = {
                 alert("Timer finished!");
             }
         }, 1000);
+        this.isActive = true; // Update the isActive property
+
     },
 
 
@@ -119,8 +122,10 @@ const timer = {
      * Pauses the timer by clearing the interval.
      */
     pauseTimer() {
-        clearInterval(this.timerInterval);
-        this.paused = true;
+        if (this.isActive) { // Only allow pausing if the timer is active
+            clearInterval(this.timerInterval);
+            this.paused = true;
+        }
     },
 
 /**
@@ -128,7 +133,7 @@ const timer = {
 
  */
 resumeTimer() {
-    if (this.paused) {
+    if (this.paused && this.isActive) { // Only allow resuming if the timer is paused and active
         this.timerInterval = setInterval(() => {
             this.remainingSeconds -= 1;
             this.displayTime();
@@ -137,6 +142,7 @@ resumeTimer() {
             if (this.remainingSeconds <= 0) {
                 clearInterval(this.timerInterval);
                 alert("Timer finished!");
+                this.isActive = false; // Update the isActive flag
             }
         }, 1000);
         this.paused = false;
@@ -149,15 +155,19 @@ resumeTimer() {
      * Resets the timer to the originally set time.
      */
     resetTimer() {
-        clearInterval(this.timerInterval);
-        this.remainingSeconds = 0;
-        this.totalSeconds = 0;
-        this.displayTime();
-
-        // Reset the input values to empty strings after timer reset
-        document.getElementById('hours').value = '';
-        document.getElementById('minutes').value = '';
-        document.getElementById('seconds').value = '';
+        if (this.isActive) { // Only allow resetting if the timer is active
+            clearInterval(this.timerInterval);
+            this.remainingSeconds = this.totalSeconds;
+            this.displayTime();
+    
+            // Reset the input values to empty strings after timer reset
+            document.getElementById('hours').value = '';
+            document.getElementById('minutes').value = '';
+            document.getElementById('seconds').value = '';
+            
+            this.isActive = false; // Update the isActive flag
+            this.paused = false; // Reset the pause state
+        }
     },
 
 
@@ -175,11 +185,44 @@ document.addEventListener('DOMContentLoaded', function () {
         timer.getTimeInput();
         timer.runTimer();
 
+        // Enable the buttons
+        pauseButton.disabled = false;
+        playButton.disabled = false;
+        resetButton.disabled = false;
+
         // Reset the input values to 0 after timer starts
         document.getElementById('hours').value = "";
         document.getElementById('minutes').value = "";
         document.getElementById('seconds').value = "";
     }
+
+    // Add event listeners to the buttons
+    startButton.addEventListener('click', handleStartButtonClick);
+    pauseButton.addEventListener('click', () => {
+        timer.pauseTimer();
+        if (!timer.isActive) { // If the timer is no longer active after pausing...
+            pauseButton.disabled = true; // Disable the pause button
+        }
+    });
+    playButton.addEventListener('click', () => {
+        timer.resumeTimer();
+        if (timer.isActive) { // If the timer is active after resuming...
+            pauseButton.disabled = false; // Enable the pause button
+        }
+    });
+    resetButton.addEventListener('click', () => {
+        timer.resetTimer();
+        if (!timer.isActive) { // If the timer is no longer active after resetting...
+            pauseButton.disabled = true; // Disable the pause button
+            playButton.disabled = true; // Disable the play button
+            resetButton.disabled = true; // Disable the reset button
+        }
+    });
+
+    // Initially, the pause, play and reset buttons should be disabled
+    pauseButton.disabled = true;
+    playButton.disabled = true;
+    resetButton.disabled = true;
 
     // Handle key press event for Enter key
     function handleKeyPress(event) {
