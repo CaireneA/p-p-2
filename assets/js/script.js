@@ -3,6 +3,8 @@ const timer = {
     totalSeconds: 0,
     remainingSeconds: 0,
     timerInterval: null,
+    paused: false,
+
 
     /**
      * Handles the key press event for Enter key.
@@ -118,7 +120,29 @@ const timer = {
      */
     pauseTimer() {
         clearInterval(this.timerInterval);
+        this.paused = true;
     },
+
+/**
+ * Resumes the paused timer.
+
+ */
+resumeTimer() {
+    if (this.paused) {
+        this.timerInterval = setInterval(() => {
+            this.remainingSeconds -= 1;
+            this.displayTime();
+
+            // When time's up, clear interval and alert the user.
+            if (this.remainingSeconds <= 0) {
+                clearInterval(this.timerInterval);
+                alert("Timer finished!");
+            }
+        }, 1000);
+        this.paused = false;
+    }
+},
+
 
     
     /**
@@ -152,9 +176,9 @@ document.addEventListener('DOMContentLoaded', function () {
         timer.runTimer();
 
         // Reset the input values to 0 after timer starts
-        document.getElementById('hours').value = 0;
-        document.getElementById('minutes').value = 0;
-        document.getElementById('seconds').value = 0;
+        document.getElementById('hours').value = "";
+        document.getElementById('minutes').value = "";
+        document.getElementById('seconds').value = "";
     }
 
     // Handle key press event for Enter key
@@ -167,7 +191,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Add event listeners to the buttons
     startButton.addEventListener('click', handleStartButtonClick);
     pauseButton.addEventListener('click', timer.pauseTimer.bind(timer));
-    playButton.addEventListener('click', handleStartButtonClick);
+    playButton.addEventListener('click', timer.resumeTimer.bind(timer));
     resetButton.addEventListener('click', timer.resetTimer.bind(timer));
 
     // Add keydown event listeners to input fields
