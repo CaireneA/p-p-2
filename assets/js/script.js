@@ -157,7 +157,8 @@ resumeTimer() {
     resetTimer() {
         if (this.isActive) { // Only allow resetting if the timer is active
             clearInterval(this.timerInterval);
-            this.remainingSeconds = this.totalSeconds;
+            this.remainingSeconds = 0;
+            this.totalSeconds = 0;
             this.displayTime();
     
             // Reset the input values to empty strings after timer reset
