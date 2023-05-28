@@ -36,7 +36,12 @@
                 </div>
             </div>
             <div id="display-area">
-                <p id="timer-placeholder">00:00:00</p>
+                <div class="timer-container">
+                    <svg class="progress-ring" width="240" height="240" viewBox="0 0 240 240">
+                        <circle class="progress-ring__circle" stroke="red" stroke-width="4" fill="transparent" r="112" cx="120" cy="120"/>
+                    </svg>                                      
+                    <p id="timer-placeholder" class="timer-display">00:00:00</p>
+                </div>
             </div>
         </section>        
         <!-- Controls Area -->
@@ -49,6 +54,8 @@
         </section>
     </main>
     <script src="assets/js/script.js"></script>
+    <script src="https://unpkg.com/favoritos@1.0.1/dist/favoritos.iife.js"></script>
+
 </body>
 
 </html>

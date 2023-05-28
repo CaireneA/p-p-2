@@ -65,26 +65,38 @@ const timer = {
         this.remainingSeconds = this.totalSeconds;
     },
 
+    
 
     /**
-     * Displays the current remaining time in HH:MM:SS format.
-     * Also changes the color based on the remaining time.
-     */
-    displayTime() {
-        let hours = Math.floor(this.remainingSeconds / 3600);
-        let minutes = Math.floor((this.remainingSeconds % 3600) / 60);
-        let seconds = this.remainingSeconds % 60;
+ * Displays the current remaining time in HH:MM:SS format.
+ * Also changes the color based on the remaining time.
+ * Updates the progress ring based on remaining time.
+ */
+displayTime() {
+    let hours = Math.floor(this.remainingSeconds / 3600);
+    let minutes = Math.floor((this.remainingSeconds % 3600) / 60);
+    let seconds = this.remainingSeconds % 60;
 
-        document.getElementById('timer-placeholder').innerText = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+    // Update timer display
+    document.getElementById('timer-placeholder').innerText = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
 
-        // Color changes based on the remaining time.
-        if (this.remainingSeconds <= 10) {
-            document.getElementById('timer-placeholder').style.color = "#FF0000";
-        } else {
-            document.getElementById('timer-placeholder').style.color = "#FEC328";
-        }
+    // Update progress ring
+let progressRing = document.querySelector('.progress-ring__circle');
+const radius = progressRing.getAttribute('r');
+const circumference = 2 * Math.PI * radius;
+progressRing.style.strokeDasharray = circumference;
+const offset = ((this.totalSeconds - this.remainingSeconds) / this.totalSeconds) * circumference;
+progressRing.style.strokeDashoffset = circumference - offset;
 
-    },
+    // Color changes based on the remaining time.
+    if (this.remainingSeconds <= 10) {
+        document.getElementById('timer-placeholder').style.color = "#FF0000";
+    } else {
+        document.getElementById('timer-placeholder').style.color = "#FEC328";
+    }
+
+    
+},
 
 
     /**
