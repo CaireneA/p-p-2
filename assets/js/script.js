@@ -98,6 +98,9 @@ const timer = {
             return;
         }
 
+        // Disable the start button
+        const startButton = document.querySelector("[data-type='start']");
+        startButton.disabled = true;
 
         // Clears any existing interval to avoid stacking intervals.
         clearInterval(this.timerInterval);
@@ -128,29 +131,29 @@ const timer = {
         }
     },
 
-/**
- * Resumes the paused timer.
+    /**
+     * Resumes the paused timer.
 
- */
-resumeTimer() {
-    if (this.paused && this.isActive) { // Only allow resuming if the timer is paused and active
-        this.timerInterval = setInterval(() => {
-            this.remainingSeconds -= 1;
-            this.displayTime();
+     */
+    resumeTimer() {
+        if (this.paused && this.isActive) { // Only allow resuming if the timer is paused and active
+            this.timerInterval = setInterval(() => {
+                this.remainingSeconds -= 1;
+                this.displayTime();
 
-            // When time's up, clear interval and alert the user.
-            if (this.remainingSeconds <= 0) {
-                clearInterval(this.timerInterval);
-                alert("Timer finished!");
-                this.isActive = false; // Update the isActive flag
-            }
-        }, 1000);
-        this.paused = false;
-    }
-},
+                // When time's up, clear interval and alert the user.
+                if (this.remainingSeconds <= 0) {
+                    clearInterval(this.timerInterval);
+                    alert("Timer finished!");
+                    this.isActive = false; // Update the isActive flag
+                }
+            }, 1000);
+            this.paused = false;
+        }
+    },
 
 
-    
+
     /**
      * Resets the timer to the originally set time.
      */
@@ -160,14 +163,18 @@ resumeTimer() {
             this.remainingSeconds = 0;
             this.totalSeconds = 0;
             this.displayTime();
-    
+
             // Reset the input values to empty strings after timer reset
             document.getElementById('hours').value = '';
             document.getElementById('minutes').value = '';
             document.getElementById('seconds').value = '';
-            
+
             this.isActive = false; // Update the isActive flag
             this.paused = false; // Reset the pause state
+
+            // Enable the start button
+            const startButton = document.querySelector("[data-type='start']");
+            startButton.disabled = false;
         }
     },
 
@@ -190,6 +197,9 @@ document.addEventListener('DOMContentLoaded', function () {
         pauseButton.disabled = false;
         playButton.disabled = false;
         resetButton.disabled = false;
+
+        // Disable the start button
+        startButton.disabled = true;
 
         // Reset the input values to 0 after timer starts
         document.getElementById('hours').value = "";
