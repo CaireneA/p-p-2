@@ -1,6 +1,3 @@
-// Import progress bar library
-import Favoritos from 'favoritos';
-
 // A timer object
 const timer = {
     totalSeconds: 0,
@@ -14,11 +11,17 @@ const timer = {
      * Handles the key press event for Enter key.
      * Starts the timer when Enter key is pressed.
      */
-    handleKeyPress: function(event) {
+    handleKeyPress(event) {
         if (event.key === 'Enter') {
-            this.handleStartButtonClick();
+            timer.getTimeInput();
+            timer.runTimer();
+
+            // Reset the input values to 0 after timer starts
+            document.getElementById('hours').value = 0;
+            document.getElementById('minutes').value = 0;
+            document.getElementById('seconds').value = 0;
         }
-    },    
+    },
 
 
     /**
@@ -107,10 +110,6 @@ const timer = {
             this.remainingSeconds -= 1;
             this.displayTime();
 
-        // Update the progress bar based on the remaining time.
-        let percent = (this.remainingSeconds / this.totalSeconds) * 100;
-        favoritos.drawProgressBar(Math.round(percent)); 
-
             // When time's up, clear interval and alert the user.
             if (this.remainingSeconds <= 0) {
                 clearInterval(this.timerInterval);
@@ -141,10 +140,6 @@ const timer = {
             this.timerInterval = setInterval(() => {
                 this.remainingSeconds -= 1;
                 this.displayTime();
-
-                // Update the progress bar based on the remaining time.
-                let percent = (this.remainingSeconds / this.totalSeconds) * 100;
-                favoritos.drawProgressBar(Math.round(percent));
 
                 // When time's up, clear interval and alert the user.
                 if (this.remainingSeconds <= 0) {
@@ -183,36 +178,6 @@ const timer = {
         }
     },
 
-    handleStartButtonClick: function() {
-        this.getTimeInput();
-        this.runTimer();
-    
-        const pauseButton = document.querySelector("[data-type='pause']");
-        const playButton = document.querySelector("[data-type='play']");
-        const resetButton = document.querySelector("[data-type='reset']");
-        
-        pauseButton.disabled = false;
-        playButton.disabled = false;
-        resetButton.disabled = false;
-    
-        const startButton = document.querySelector("[data-type='start']");
-        startButton.disabled = true;
-    
-        document.getElementById('hours').value = "";
-        document.getElementById('minutes').value = "";
-        document.getElementById('seconds').value = "";
-    
-        const favoritos = new Favoritos({
-            icon: {
-                shape: 'circle',
-            },
-            debug: {
-                enabled: true,
-            },
-        });
-        document.querySelector('#display-area').appendChild(favoritos);
-    },
-    
 
 }
 
@@ -240,21 +205,10 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('hours').value = "";
         document.getElementById('minutes').value = "";
         document.getElementById('seconds').value = "";
-
-        const favoritos = new Favoritos({
-            icon: {
-                shape: 'circle', 
-            },
-            debug: {
-                enabled: true,
-            },
-        });
-        document.querySelector('#display-area').appendChild(favoritos); // Append progress bar to the display area
-
     }
 
     // Add event listeners to the buttons
-    startButton.addEventListener('click', () => timer.handleStartButtonClick());
+    startButton.addEventListener('click', handleStartButtonClick);
     pauseButton.addEventListener('click', () => {
         timer.pauseTimer();
         if (!timer.isActive) { // If the timer is no longer active after pausing...
@@ -300,4 +254,3 @@ document.addEventListener('DOMContentLoaded', function () {
         inputField.addEventListener('keydown', handleKeyPress);
     });
 });
-
