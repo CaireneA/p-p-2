@@ -3,7 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Electrolize&display=swap');
 
 body {
-    background-color: #1F8E9A;
+    background-color: #1b6ea5;
     font-family: 'Electrolize', sans-serif;
     color: #F0EEE9;
     text-align: center;
@@ -115,8 +115,8 @@ body {
 
 .controls-area .btn {
     background-color: #FFF;
-    color: rgb(186, 140, 24);
-    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.1);
+    color: #571179;
+    /* text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.1); */
     font-size: 1.3rem;
     font-weight: bolder;
     padding: 10px 20px;
