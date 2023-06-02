@@ -24,24 +24,41 @@ const timer = {
     },
 
 
-    /**
-     * Adds leading zero if necessary and checks if the input is valid
-     */
-    checkAndPadInput(inputElement) {
-        // If input is empty or not a valid number, set to the original placeholder
-        if (!inputElement.value || !/^\d+$/.test(inputElement.value)) {
-            inputElement.value = inputElement.placeholder;
+/**
+ * Adds leading zero if necessary and checks if the input is valid
+ */
+checkAndPadInput(inputElement) {
+    let isValid = true;
+
+    // Iterate through each character in the input
+    for (let i = 0; i < inputElement.value.length; i++) {
+        let ascii = inputElement.value.charCodeAt(i);
+
+        // If ASCII value is not within the range for numbers (48-57), mark as invalid
+        if (ascii < 48 || ascii > 57) {
+            isValid = false;
+            break;
         }
+    }
+
+    // If input is not a valid number, alert the user
+    if (!isValid) {
+        alert(`Please enter a valid number for ${inputElement.id}.`);
+        inputElement.value = inputElement.placeholder;
+    } else if (!inputElement.value) {
+        // If input is empty, set it to '00'
+        inputElement.value = '00';
+    } else if (inputElement.value.length === 1) {
         // If length is 1, pad with a leading zero
-        else if (inputElement.value.length === 1) {
-            inputElement.value = inputElement.value.padStart(2, '0');
-        }
-        // If length is more than 2, alert and set to the original placeholder
-        else if (inputElement.value.length > 2) {
-            alert(`Please enter a valid two-digit value for ${inputElement.id}.`);
-            inputElement.value = inputElement.placeholder;
-        }
-    },
+        inputElement.value = inputElement.value.padStart(2, '0');
+    } else if (inputElement.value.length > 2) {
+        // If length is more than 2, alert and set to '00'
+        alert(`Please enter a valid two-digit value for ${inputElement.id}.`);
+        inputElement.value = '00';
+    }
+},
+
+
 
 
     /**
