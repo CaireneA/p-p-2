@@ -16,18 +16,18 @@
 
 The HTML of this project was checked using the W3C Markup Validation Service and it returned with no errors, as can be seen from this screenshot:
 
-![HTML Validation](./html-validation.png)
+![HTML Validation](assets/images/html-validation.png)
 
 The CSS was also checked using the W3C CSS Validation Service and no errors were found:
 
-![CSS Validation](./css-validation.png)
+![CSS Validation](assets/images/css-validation.png)
 
 
 ### Lighthouse
 
 Google Lighthouse was used for performance and accissibility testing. The screenshot of the lighthouse test results can be found below:
 
-![Lighthouse Test](./lighthouse-test.png)
+![Lighthouse Test](assets/images/lighthouse-test.png)
 
 ## Manual Testing
 
@@ -60,5 +60,5 @@ Each device and browser combination was tested to ensure a seamless user experie
 
 For accessibility, the WAVE Web Accessibility Evaluation Tool was used and the test results can be seen in the following screenshot:
 
-![Wave Accessibility Test](./wave-accissibility-test.png)
+![Wave Accessibility Test](assets/images/wave-accissibility-test.png)
 

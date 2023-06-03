@@ -20,7 +20,7 @@ The circular progress bar serves as a visual indicator of the remaining time.
 
 ## Wireframes
 
-![Wireframe](wire-frame.jpeg)
+![Wireframe](assets/images/wire-frame.jpeg)
 
 ## Features
 
