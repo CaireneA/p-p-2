@@ -1,108 +1,130 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Countdown Timer
 
-Welcome Ahmed  Abdel Hamid,
+## User Experience
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+The Countdown Timer is a user-friendly web-based application that provides users an interactive way to set and manage time for their tasks. It makes it easy for users to set, pause, resume, and reset a countdown.
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
+## Design
 
-## Gitpod Reminders
+### Colour Scheme
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+The application uses a minimal color palette with a blend of orange and midnight blue with white background for an appealing look.
 
-`python3 -m http.server`
+### Typography
 
-A blue button should appear to click: _Make Public_,
+The primary typeface for the application is 'Electrolize', which provides a contemporary and sleek feel to the interface. In case 'Electrolize' fails to load or is not available, the default sans-serif font is used as a backup.
 
-Another blue button should appear to click: _Open Browser_.
+### Imagery
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+The circular progress bar serves as a visual indicator of the remaining time.
 
-A blue button should appear to click: _Make Public_,
+## Wireframes
 
-Another blue button should appear to click: _Open Browser_.
+![Wireframe](wire-frame.jpeg)
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+## Features
 
-To log into the Heroku toolbelt CLI:
+### The Home Page
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+The home page is the main interface of the application. It displays a countdown timer, input fields for hours, minutes, and seconds, and four control buttons: start, pause, resume, and reset.
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+### Future Implementations
 
-------
+Future implementations could include multiple timers, timers with names or categories, and alarm sounds when time's up.
 
-## Release History
+## Accessibility
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+The application is accessible to all users. All buttons have appropriate aria-label attributes for screen readers, and all input fields can be accessed via keyboard navigation.
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+## Technologies Used
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+### Languages Used
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+- HTML
+- CSS
+- JavaScript
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+### Frameworks, Libraries & Programs Used
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+1. **Circular progress bar:** This library was used to display a countdown timer. [Check out the library here.](https://github.com/webistomin/favoritos)
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+2. **Google Fonts:** Google Fonts was used to import the 'Electrolize' typeface into the style.css file. It's used throughout the project to ensure a consistent, attractive typography.
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+## Deployment & Local Development
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+### Deployment
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+The live website is hosted on GitHub pages and it can be accessed from [Your Favourite Countdown Timer](https://cairenea.github.io/p-p-2/).
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+Clone the repository to your local machine, then open `index.html` in a web browser to start the application.
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+### Local Development
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+To run this project locally, clone this repository and open `index.html` in any modern browser.
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+## How to Fork
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+1. In GitHub, navigate to the main page of the repository.
+2. Click on the 'Fork' button in the upper right corner.
 
-------
+## How to Clone
 
-## FAQ about the uptime script
+1. Under the repository name, click 'Clone or download'.
+2. In the Clone with HTTPs section, click to copy the clone URL for the repository.
+3. Open Terminal.
+4. Change the current working directory to the location where you want the cloned directory to be made.
+5. Type `git clone`, and then paste the URL you copied.
+6. Press Enter. Your local clone will be created.
 
-**Why have you added this script?**
+## Testing
 
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
+Please refer to the [TESTING.md](TESTING.md) file for details on all testing carried out.
 
-**How will this affect me?**
+### Solved Bugs
 
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
 
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
+No  | Bug | Solution 
+--- | --- | ---
+1 | The alerts were preventing users from using only one of the three input fields (hours-minutes-seconds) from running the timer. | This issue was resolved by modifying the alert system to allow users to input the time into any of the three fields without triggering an alert. The system was adjusted to validate the time input as a whole rather than validating each individual field.
+2 | The Start button could be pressed while the timer was already running, which caused the timer to crash. | This bug was fixed by disabling the Start button while the timer is running. This way, the timer couldn't be started again until it had been stopped or had finished counting down. This required adding a condition in the Start button event handler to check the status of the timer before proceeding.
 
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
 
-**So….?**
+## Credits
 
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
+### Code Used
 
-**Can I opt out?**
+In this project, external libraries and code snippets were utilized to enhance its functionality and aesthetics:
 
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
+1. **Google Fonts**: The 'Electrolize' font family was integrated into the project through Google Fonts. You can check it out [here](https://fonts.google.com/specimen/Electrolize).
 
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
+2. **Favoritos Library**: For implementing the circular progress bar, the 'favoritos' JavaScript library was used. The repository can be found on [Github](https://github.com/webistomin/favoritos).
 
-**Anything more?**
+3. **Form Validation**: The application's form validation was implemented by referring to the tutorial available on [W3Schools](https://www.w3schools.com/js/js_validation.asp).
 
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
+4. **Head Detached Issue Solution**: A common git issue encountered during the project was resolved with the help of this [Stack Overflow discussion](https://stackoverflow.com/questions/10228760/how-do-i-fix-a-git-detached-head).
 
----
+5. **ASCII Calculator**: ASCII code references were used for character calculations. The reference can be found [here](https://www.ascii-code.com/characters/0-9).
 
-Happy coding!
+
+
+### Content
+
+All text content was written by the developer.
+
+### Media
+
+The following resources were instrumental in providing data and resolving issues during the development process:
+
+**Color Palette:**
+
+- [Colormind Bootstrap](http://colormind.io/bootstrap/)
+- [Designs.ai Colors](https://designs.ai/colors/search/Spring)
+
+**Contrast Checker:**
+
+- [Siege Media Contrast Ratio](https://www.siegemedia.com/contrast-ratio#%23571179-on-%23fff)
+
+
+## Acknowledgments
+
+Thanks to Graeme and CI for providing guidance in the development of this project.
