@@ -1,7 +1,7 @@
 # Your Favourite Countdown Timer
 
 <a href="https://cairenea.github.io/p-p-2/">
-    <img src="assets/images/responsive-site.png" alt="Responsive Site">
+    <img src="assets/images/responsive-site.png" alt="photo of live site on various screen sizes">
 </a>
 
 ## User Experience
