@@ -12,11 +12,11 @@ The Countdown Timer is a user-friendly web-based application that provides users
 
 ### Colour Scheme
 
-The application uses a minimal color palette with a blend of orange and midnight blue with white background for an appealing look.
+I've opted for a simple yet striking color palette that combines shades of orange and deep blue on a clean white background. This gives a pleasing aesthetic to the application.
 
 ### Typography
 
-The primary typeface for the application is 'Electrolize', which provides a contemporary and sleek feel to the interface. In case 'Electrolize' fails to load or is not available, the default sans-serif font is used as a backup.
+'Electrolize' is the primary font of choice for the application, imparting a modern and stylish touch. If 'Electrolize' is unavailable or doesn't load, it defaults to the sans-serif font.
 
 ### Imagery
 
@@ -30,7 +30,7 @@ The circular progress bar serves as a visual indicator of the remaining time.
 
 ### The Home Page
 
-The home page is the main interface of the application. It displays a countdown timer, input fields for hours, minutes, and seconds, and four control buttons: start, pause, resume, and reset.
+The home page is the command center for the application. It presents you with a countdown timer, fields to input hours, minutes, and seconds, and four control buttons: start, pause, resume, and reset.
 
 ### Future Implementations
 
