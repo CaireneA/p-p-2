@@ -16,7 +16,8 @@ body {
 }
 
 .header h1 {
-    margin: auto;
+    margin-top: 5rem;
+    margin-bottom: auto;
 }
 
 .hidden {
@@ -68,6 +69,13 @@ body {
     border-radius: 5px;
     background-color: #F0EEE9;
     color: #202C2C;
+    transition: all 0.3s ease-in-out;
+}
+
+.input-wrapper input:focus {
+    background-color: #e0e0e0;
+    width: 105px;
+    height: 55px;
 }
 
 /* Timer Display and Progress Ring Styling */
@@ -116,29 +124,29 @@ body {
 .controls-area .btn {
     background-color: #FFF;
     color: #571179;
-    /* text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.1); */
     font-size: 1.3rem;
     font-weight: bolder;
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
 }
 
 .controls-area .btn:hover,
-.controls-area .btn:focus,
-.controls-area .btn:active {
+.controls-area .btn:focus {
     background-color: rgb(254, 195, 40);
     color: #FFF;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
 }
 
 /* Media queries */
 
-@media (max-width: 600px) {
+@media (max-width: 800px) {
     .header h1 {
         font-size: 1.8rem;
-        margin: 2rem 3rem;
+        margin: 2rem 2rem;
     }
 
     #input-area label {
@@ -157,7 +165,32 @@ body {
     }
 
     .controls-area {
-        display: inline-block;
         max-width: 80%;
+    }
+}
+
+@media (max-width: 600px) {
+    .header h1 {
+        font-size: 1.5rem;
+        margin: 1.5rem 1.5rem;
+    }
+
+    #input-area label {
+        font-size: 1rem;
+    }
+
+    #input-area input {
+        width: 70px;
+        height: 35px;
+        font-size: 1.3rem;
+    }
+
+    .controls-area .btn {
+        font-size: 0.9rem;
+        padding: 7px 14px;
+    }
+
+    .controls-area {
+        max-width: 90%;
     }
 }
