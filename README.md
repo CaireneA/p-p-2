@@ -1,4 +1,8 @@
-# Countdown Timer
+# Your Favourite Countdown Timer
+
+<a href="https://cairenea.github.io/p-p-2/">
+    <img src="assets/images/responsive-site.png" alt="Responsive Site">
+</a>
 
 ## User Experience
 
